@@ -1,0 +1,12 @@
+;	STMicroelectronics Workspace file
+
+[Version]
+Keyword=ST7Workspace-V0.7
+
+[Project0]
+Filename=lcd.stp
+Dependencies=
+[Options]
+ActiveProject=lcd
+ActiveConfig=Debug
+AddSortedElements=0
