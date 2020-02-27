@@ -113,9 +113,8 @@ void CLOCK_setup(void)
 	CLK_HSECmd(DISABLE);
 	CLK_LSICmd(DISABLE);
 	CLK_HSICmd(ENABLE); // Enable High Speed Internal clock
-	while (CLK_GetFlagStatus(CLK_FLAG_HSIRDY) == FALSE)
-		;
-
+	while (CLK_GetFlagStatus(CLK_FLAG_HSIRDY) == FALSE); // Wait for clock source to stabilize
+	
 	CLK_ClockSwitchCmd(ENABLE);
 	CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1); // Prescaler = 1 -> 16 MHz clock
 	CLK_SYSCLKConfig(CLK_PRESCALER_CPUDIV1);
