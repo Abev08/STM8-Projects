@@ -1,7 +1,7 @@
 # Ignore Debug, Release and *_Programmer folders
 Debug/
 Release/
-*_Programmer
+*_Programmer/
 
 
 # Prerequisites
