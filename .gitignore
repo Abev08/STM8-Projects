@@ -3,6 +3,10 @@ Debug/
 Release/
 *_Programmer/
 
+# Ignore .spy file
+*.spy
+
+
 
 # Prerequisites
 *.d
