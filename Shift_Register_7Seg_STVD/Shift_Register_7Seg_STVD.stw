@@ -1,0 +1,12 @@
+;	STMicroelectronics Workspace file
+
+[Version]
+Keyword=ST7Workspace-V0.7
+
+[Project0]
+Filename=shift_register_7seg_stvd.stp
+Dependencies=
+[Options]
+ActiveProject=shift_register_7seg_stvd
+ActiveConfig=Debug
+AddSortedElements=0
