@@ -9,4 +9,10 @@ STM8 Cosmic C: https://www.cosmic-software.com
 
 
 
-Starting STM8 Microcontrollers by Shawon M. Shahryiar was a great help ( http://embedded-lab.com/blog/starting-stm8-microcontrollers ).
+Starting STM8 Microcontrollers by Shawon M. Shahryiar was a great help ( http://embedded-lab.com/blog/starting-stm8-microcontrollers ). 
+
+
+
+
+
+STVD is very bad at text formatting - when using external program to format text it will look bad in STVD and good looking text in STVD looks bad in external program.
