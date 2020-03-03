@@ -614,7 +614,7 @@ CLK_TIMEOUT	inc\stm8s_clk.h	212;"	macro
 CLK_TypeDef	inc\stm8s.h	525;"	typedef	typeref:struct:CLK_struct
 CLK_struct	inc\stm8s.h	508;"	struct
 CLOCK_setup	main.c	16;"	prototype	file:	signature:(void)
-CLOCK_setup	main.c	65;"	function	signature:(void)
+CLOCK_setup	main.c	58;"	function	signature:(void)
 CMSR	inc\stm8s.h	513;"	member	struct:CLK_struct
 CNTR	inc\stm8s.h	1068;"	member	struct:TIM4_struct
 CNTR	inc\stm8s.h	1268;"	member	struct:TIM6_struct
@@ -1019,7 +1019,7 @@ GPIO_WriteLow	src\stm8s_gpio.c	167;"	function	signature:(GPIO_TypeDef* GPIOx, GP
 GPIO_WriteReverse	inc\stm8s_gpio.h	144;"	prototype	signature:(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef PortPins)
 GPIO_WriteReverse	src\stm8s_gpio.c	180;"	function	signature:(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef PortPins)
 GPIO_setup	main.c	15;"	prototype	file:	signature:(void)
-GPIO_setup	main.c	47;"	function	signature:(void)
+GPIO_setup	main.c	40;"	function	signature:(void)
 GPIO_struct	inc\stm8s.h	265;"	struct
 GTR	inc\stm8s.h	1778;"	member	struct:UART1_struct
 GTR	inc\stm8s.h	1877;"	member	struct:UART2_struct
@@ -1736,14 +1736,21 @@ SR2	inc\stm8s.h	833;"	member	struct:TIM2_struct
 SR2	inc\stm8s.h	957;"	member	struct:TIM3_struct
 SR3	inc\stm8s.h	1339;"	member	struct:I2C_struct
 STM8S105	inc\stm8s.h	44;"	macro
-STP16CP05_CLK	stp16cp05.h	14;"	macro
-STP16CP05_LE	stp16cp05.h	16;"	macro
-STP16CP05_OE	stp16cp05.h	15;"	macro
-STP16CP05_PORT	stp16cp05.h	12;"	macro
-STP16CP05_SDI	stp16cp05.h	13;"	macro
-STP16CP05_Write16bits	stp16cp05.h	20;"	prototype	signature:(uint8_t in)
-STP16CP05_Write8bits	stp16cp05.h	19;"	prototype	signature:(uint8_t in)
-STP16CP05_WriteBit	stp16cp05.h	18;"	prototype	signature:(bool in)
+STP16CP05_CLK	stp16cp05.h	16;"	macro
+STP16CP05_LE	stp16cp05.h	18;"	macro
+STP16CP05_OE	stp16cp05.h	17;"	macro
+STP16CP05_PORT	stp16cp05.h	14;"	macro
+STP16CP05_SDI	stp16cp05.h	15;"	macro
+STP16CP05_ToggleCLK	stp16cp05.h	21;"	prototype	signature:(void)
+STP16CP05_ToggleCLK	stp16cp05.h	29;"	function	signature:(void)
+STP16CP05_ToggleLE	stp16cp05.h	22;"	prototype	signature:(void)
+STP16CP05_ToggleLE	stp16cp05.h	36;"	function	signature:(void)
+STP16CP05_Write16bits	stp16cp05.h	25;"	prototype	signature:(uint16_t in)
+STP16CP05_Write16bits	stp16cp05.h	71;"	function	signature:(uint16_t in)
+STP16CP05_Write8bits	stp16cp05.h	24;"	prototype	signature:(uint8_t in)
+STP16CP05_Write8bits	stp16cp05.h	55;"	function	signature:(uint8_t in)
+STP16CP05_WriteBit	stp16cp05.h	23;"	prototype	signature:(bool in)
+STP16CP05_WriteBit	stp16cp05.h	43;"	function	signature:(bool in)
 STRINGVECTOR	inc\stm8s.h	2758;"	macro
 SUCCESS	inc\stm8s.h	238;"	enumerator	enum:__anon4
 SWCR	inc\stm8s.h	515;"	member	struct:CLK_struct
@@ -3031,7 +3038,6 @@ assert_param	inc\stm8s_conf.h	107;"	macro
 bool	inc\stm8s.h	231;"	typedef	typeref:enum:__anon1
 delay_ms	stm8s_delay.h	24;"	function	signature:(unsigned int value)
 delay_us	stm8s_delay.h	13;"	function	signature:(unsigned int value)
-delay_us	stp16cp05.h	10;"	prototype	signature:(unsigned int value)
 disableInterrupts	inc\stm8s.h	2717;"	macro
 disableInterrupts	inc\stm8s.h	2726;"	macro
 disableInterrupts	inc\stm8s.h	2736;"	macro
@@ -3042,7 +3048,7 @@ enableInterrupts	inc\stm8s.h	2735;"	macro
 halt	inc\stm8s.h	2723;"	macro
 halt	inc\stm8s.h	2732;"	macro
 halt	inc\stm8s.h	2742;"	macro
-i	main.c	18;"	variable
+i	main.c	19;"	variable
 int16_t	inc\stm8s.h	212;"	typedef
 int32_t	inc\stm8s.h	213;"	typedef
 int8_t	inc\stm8s.h	211;"	typedef
@@ -3050,7 +3056,7 @@ interrupt_handler	stm8_interrupt_vector.c	9;"	member	struct:interrupt_vector	fil
 interrupt_handler_t	stm8_interrupt_vector.c	5;"	typedef	file:
 interrupt_instruction	stm8_interrupt_vector.c	8;"	member	struct:interrupt_vector	file:
 interrupt_vector	stm8_interrupt_vector.c	7;"	struct	file:
-main	main.c	20;"	function
+main	main.c	21;"	function
 nop	inc\stm8s.h	2720;"	macro
 nop	inc\stm8s.h	2729;"	macro
 nop	inc\stm8s.h	2739;"	macro
@@ -3063,6 +3069,8 @@ s8	inc\stm8s.h	224;"	typedef
 sim	inc\stm8s.h	2719;"	macro
 sim	inc\stm8s.h	2728;"	macro
 sim	inc\stm8s.h	2738;"	macro
+test	main.c	17;"	prototype	file:	signature:(void)
+test	main.c	82;"	function	signature:(void)
 trap	inc\stm8s.h	2721;"	macro
 trap	inc\stm8s.h	2730;"	macro
 trap	inc\stm8s.h	2740;"	macro
