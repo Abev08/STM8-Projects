@@ -1,5 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // STM8S105K6 communicating with STP16CP05 using software SPI
+// 7 segment 4 digit display is connected to STP16CP05
 //
 //
 // Created: 03.2020, Abev
@@ -35,12 +36,15 @@ uint16_t blinkLED = 0; // Timer for LED blinking
 uint8_t digit = 0; // Selected digit on display
 uint16_t value = 0; // Value displayed on display (last case only)
 
+uint8_t brightness = 100; // Brightness of 7 segment display (0 - 100 in increment of 10)
+uint16_t brightnessTimer = 0; // Time base for brightenss timer
 
 main()
 {
 	// Initialization functions
 	GPIO_setup();
 	CLOCK_setup();
+	STP16CP05_GPIOInit();
 	
 	
 	while (TRUE)
@@ -139,6 +143,14 @@ main()
 		}
 		
 		
+		//***********************************************************************************************
+		// Change the brightness of 7 segment display
+		// Switching frequency of STP16CP05 Output Enable pin shouldn't exceed 100 kHz
+		brightnessTimer = (brightnessTimer + 1) % 10; // Base frequency 100 Hz
+		if ((brightness / 10) >= (brightnessTimer + 1)) GPIO_WriteLow(STP16CP05_PORT, STP16CP05_OE);
+		else GPIO_WriteHigh(STP16CP05_PORT, STP16CP05_OE);
+		
+		
 		delay_ms(1);
 	}
 }
@@ -149,10 +161,6 @@ void GPIO_setup(void)
 	GPIO_Init(GPIOB, GPIO_PIN_2, GPIO_MODE_OUT_PP_LOW_FAST); // DEBUGGING LED, Output, Push-Pull, Low on Init, Fast
 	
 	GPIO_DeInit(GPIOC);
-	GPIO_Init(GPIOC, GPIO_PIN_4, GPIO_MODE_OUT_PP_LOW_FAST); // Latch, Output, Push-Pull, Low on Init, Fast
-	GPIO_Init(GPIOC, GPIO_PIN_5, GPIO_MODE_OUT_PP_LOW_FAST); // Output enable, Output, Push-Pull, Low on Init, Fast
-	GPIO_Init(GPIOC, GPIO_PIN_6, GPIO_MODE_OUT_PP_LOW_FAST); // CLK, Output, Push-Pull, Low on Init, Fast
-	GPIO_Init(GPIOC, GPIO_PIN_7, GPIO_MODE_OUT_PP_LOW_FAST); // SDI, Output, Push-Pull, Low on Init, Fast
 }
 
 void CLOCK_setup(void)

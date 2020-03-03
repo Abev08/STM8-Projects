@@ -19,12 +19,22 @@
 #define STP16CP05_LE				GPIO_PIN_4	// STP16CP05 Latch Input
 
 
+void STP16CP05_GPIOInit(void);
 void STP16CP05_ToggleCLK(void);
 void STP16CP05_ToggleLE(void);
 void STP16CP05_WriteBit(bool in);
 void STP16CP05_Write8bits(uint8_t in);
 void STP16CP05_Write16bits(uint16_t in);
 
+
+// Initialize GPIO pins to communicate with STP16CP05
+void STP16CP05_GPIOInit(void)
+{
+	GPIO_Init(STP16CP05_PORT, STP16CP05_LE, GPIO_MODE_OUT_PP_LOW_FAST); // Latch, Output, Push-Pull, Low on Init, Fast
+	GPIO_Init(STP16CP05_PORT, STP16CP05_OE, GPIO_MODE_OUT_PP_LOW_FAST); // Output enable, Output, Push-Pull, Low on Init, Fast
+	GPIO_Init(STP16CP05_PORT, STP16CP05_CLK, GPIO_MODE_OUT_PP_LOW_FAST); // CLK, Output, Push-Pull, Low on Init, Fast
+	GPIO_Init(STP16CP05_PORT, STP16CP05_SDI, GPIO_MODE_OUT_PP_LOW_FAST); // SDI, Output, Push-Pull, Low on Init, Fast
+}
 
 // Function toggles CLK output
 void STP16CP05_ToggleCLK(void)
