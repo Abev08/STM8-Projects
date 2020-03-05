@@ -1,0 +1,12 @@
+;	STMicroelectronics Workspace file
+
+[Version]
+Keyword=ST7Workspace-V0.7
+
+[Project0]
+Filename=7_seg_clock_stvd.stp
+Dependencies=
+[Options]
+ActiveProject=7_seg_clock_stvd
+ActiveConfig=Debug
+AddSortedElements=1
